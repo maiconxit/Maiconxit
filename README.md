@@ -6,16 +6,10 @@
     <title>Notificação</title>
 </head>
 <body>
-    <button id="notifyBtn">Clique aqui</button>
-
-    <div id="passwordScreen" style="display: none;">
-        <label for="password">Digite a senha:</label>
-        <input type="password" id="password" />
-        <button id="submitPassword">Enviar</button>
-    </div>
+    <button id="notifyBtn">Permissão de Notificação</button>
 
     <div id="messageScreen" style="display: none;">
-        <label for="message">Escreva sua mensagem:</label>
+        <label for="message">Escreva sua mensagem (inclua "193"):</label>
         <textarea id="message"></textarea>
         <button id="sendMessage">Enviar</button>
     </div>
@@ -25,30 +19,25 @@
             if (Notification.permission !== 'granted') {
                 Notification.requestPermission().then(permission => {
                     if (permission === 'granted') {
-                        document.getElementById('passwordScreen').style.display = 'block';
+                        document.getElementById('messageScreen').style.display = 'block';
                     }
                 });
             } else {
-                document.getElementById('passwordScreen').style.display = 'block';
-            }
-        };
-
-        document.getElementById('submitPassword').onclick = function() {
-            const password = document.getElementById('password').value;
-            if (password === '193') {
-                document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('messageScreen').style.display = 'block';
-            } else {
-                alert('Senha incorreta!');
             }
         };
 
         document.getElementById('sendMessage').onclick = function() {
             const message = document.getElementById('message').value;
-            if (Notification.permission === 'granted') {
-                new Notification('Nova mensagem', {
-                    body: message
-                });
+            if (message.includes('193')) {
+                const cleanMessage = message.replace('193', '');
+                if (Notification.permission === 'granted') {
+                    new Notification('Nova mensagem', {
+                        body: cleanMessage
+                    });
+                }
+            } else {
+                alert('A mensagem deve incluir "193".');
             }
         };
     </script>
