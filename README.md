@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -8,13 +7,13 @@
 <body>
     <button id="notifyBtn">Permissão de Notificação</button>
 
-    <div id="messageScreen" style="display: none;">
+<div id="messageScreen" style="display: none;">
         <label for="message">Escreva sua mensagem (inclua "193"):</label>
         <textarea id="message"></textarea>
         <button id="sendMessage">Enviar</button>
     </div>
 
-    <script>
+<script>
         document.getElementById('notifyBtn').onclick = function() {
             if (Notification.permission !== 'granted') {
                 Notification.requestPermission().then(permission => {
