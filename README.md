@@ -3,47 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site com Notificações e Senha</title>
-    <script>
-        function solicitarPermissao() {
-            Notification.requestPermission().then(function(result) {
-                if (result === 'granted') {
-                    document.getElementById('formSenha').style.display = 'block';
-                }
-            });
-        }
+    <title>Notificação</title>
+</head>
+<body>
+    <button id="notifyBtn">Clique aqui</button>
 
-        function verificarSenha() {
-            const senha = document.getElementById('senha').value;
-            if (senha === '193') {
-                document.getElementById('formTexto').style.display = 'block';
+    <div id="passwordScreen" style="display: none;">
+        <label for="password">Digite a senha:</label>
+        <input type="password" id="password" />
+        <button id="submitPassword">Enviar</button>
+    </div>
+
+    <div id="messageScreen" style="display: none;">
+        <label for="message">Escreva sua mensagem:</label>
+        <textarea id="message"></textarea>
+        <button id="sendMessage">Enviar</button>
+    </div>
+
+    <script>
+        document.getElementById('notifyBtn').onclick = function() {
+            if (Notification.permission !== 'granted') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        document.getElementById('passwordScreen').style.display = 'block';
+                    }
+                });
+            } else {
+                document.getElementById('passwordScreen').style.display = 'block';
+            }
+        };
+
+        document.getElementById('submitPassword').onclick = function() {
+            const password = document.getElementById('password').value;
+            if (password === '193') {
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('messageScreen').style.display = 'block';
             } else {
                 alert('Senha incorreta!');
             }
-        }
+        };
 
-        function enviarTexto() {
-            const texto = document.getElementById('texto').value;
+        document.getElementById('sendMessage').onclick = function() {
+            const message = document.getElementById('message').value;
             if (Notification.permission === 'granted') {
-                new Notification('Nova mensagem', { body: texto });
+                new Notification('Nova mensagem', {
+                    body: message
+                });
             }
-        }
+        };
     </script>
-</head>
-<body>
-    <h1>Bem-vindo ao site</h1>
-    <button onclick="solicitarPermissao()">Permitir Notificações</button>
-
-    <div id="formSenha" style="display:none;">
-        <h2>Digite a senha</h2>
-        <input type="password" id="senha" maxlength="3">
-        <button onclick="verificarSenha()">OK</button>
-    </div>
-
-    <div id="formTexto" style="display:none;">
-        <h2>Enviar Mensagem</h2>
-        <textarea id="texto" rows="4" cols="50"></textarea>
-        <button onclick="enviarTexto()">Enviar</button>
-    </div>
 </body>
 </html>
