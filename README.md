@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -39,6 +39,7 @@
             <h2>Digite a senha</h2>
             <input type="password" id="password" placeholder="Senha">
             <button class="button" onclick="checkPassword()">Entrar</button>
+            <button class="button" onclick="requestNotificationPermission()">Permissão</button>
         </div>
         <div id="content-section" class="hidden">
             <button class="button" onclick="openTigre()">Tigre</button>
@@ -50,9 +51,9 @@
             <button class="button" onclick="sendNotification()">Enviar</button>
         </div>
     </div>
-<script>
-        // Solicitação de permissão de notificação
-        if (Notification.permission !== 'granted' && Notification.permission !== 'denied') {
+
+    <script>
+        function requestNotificationPermission() {
             Notification.requestPermission().then(function (permission) {
                 if (permission === 'granted') {
                     alert('Notificações ativadas');
@@ -60,8 +61,8 @@
             });
         }
 
-    function checkPassword() {
-           const password = document.getElementById('password').value;
+        function checkPassword() {
+            const password = document.getElementById('password').value;
             if (password === '2011/2025') {
                 document.getElementById('password-section').classList.add('hidden');
                 document.getElementById('content-section').classList.remove('hidden');
