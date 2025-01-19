@@ -31,6 +31,16 @@
         .button:hover {
             background-color: #0056b3;
         }
+        #message-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -39,7 +49,6 @@
             <h2>Digite a senha</h2>
             <input type="password" id="password" placeholder="Senha">
             <button class="button" onclick="checkPassword()">Entrar</button>
-            <button class="button" onclick="requestNotificationPermission()">Permissão</button>
         </div>
         <div id="content-section" class="hidden">
             <button class="button" onclick="openTigre()">Tigre</button>
@@ -50,17 +59,15 @@
             <textarea id="notification-text" placeholder="Escreva sua mensagem..."></textarea><br>
             <button class="button" onclick="sendNotification()">Enviar</button>
         </div>
+        <div id="message-section" class="hidden">
+            <h2>Envie uma Mensagem</h2>
+            <textarea id="message-text" placeholder="Escreva sua mensagem..."></textarea><br>
+            <button class="button" onclick="showMessage()">Enviar</button>
+        </div>
     </div>
+    <div id="message-bar"></div>
 
     <script>
-        function requestNotificationPermission() {
-            Notification.requestPermission().then(function (permission) {
-                if (permission === 'granted') {
-                    alert('Notificações ativadas');
-                }
-            });
-        }
-
         function checkPassword() {
             const password = document.getElementById('password').value;
             if (password === '2011/2025') {
@@ -69,6 +76,9 @@
             } else if (password === '2011/notifica') {
                 document.getElementById('password-section').classList.add('hidden');
                 document.getElementById('notification-section').classList.remove('hidden');
+            } else if (password === '2011notifica') {
+                document.getElementById('password-section').classList.add('hidden');
+                document.getElementById('message-section').classList.remove('hidden');
             } else {
                 alert('Senha incorreta!');
             }
@@ -129,6 +139,17 @@
             } else {
                 alert('Permissão para notificações não concedida.');
             }
+        }
+
+        function showMessage() {
+            const message = document.getElementById('message-text').value;
+            const messageBar = document.getElementById('message-bar');
+            messageBar.textContent = message;
+            messageBar.style.display = 'block';
+            
+            setTimeout(() => {
+                messageBar.style.display = 'none';
+            }, 10000);
         }
     </script>
 </body>
