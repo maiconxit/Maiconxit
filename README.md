@@ -41,8 +41,8 @@
             <button class="button" onclick="checkPassword()">Entrar</button>
         </div>
         <div id="content-section" class="hidden">
-            <button class="button" onclick="openTigre()">Tigre</button>
-            <button class="button" onclick="openOxe()">OXE</button>
+            <button class="button" onclick="openTigre()">OX</button>
+            <button class="button" onclick="openOxe()">TIGRE</button>
         </div>
         <div id="notification-section" class="hidden">
             <h2>Envie uma Notificação</h2>
