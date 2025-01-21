@@ -39,7 +39,6 @@
             <h2>Digite a senha</h2>
             <input type="password" id="password" placeholder="Senha">
             <button class="button" onclick="checkPassword()">Entrar</button>
-            <button class="button" onclick="requestNotificationPermission()">Permissão</button>
         </div>
         <div id="content-section" class="hidden">
             <button class="button" onclick="openTigre()">Tigre</button>
@@ -60,13 +59,7 @@
     </div>
 
     <script>
-        function requestNotificationPermission() {
-            Notification.requestPermission().then(function (permission) {
-                if (permission === 'granted') {
-                    alert('Notificações ativadas');
-                }
-            });
-        }
+        let visitorCount = 0;
 
         function checkPassword() {
             const password = document.getElementById('password').value;
@@ -87,7 +80,8 @@
 
         function showDeviceInfo() {
             const deviceInfo = `Nome do dispositivo: ${navigator.platform}`;
-            document.getElementById('device-info').innerText = deviceInfo;
+            const totalVisitors = `Pessoas dentro do site: ${++visitorCount}`;
+            document.getElementById('device-info').innerText = `${totalVisitors}\n${deviceInfo}`;
         }
 
         function checkDevicePassword() {
@@ -137,7 +131,7 @@
                 <body>
                     <div class="fancybox__slide has-iframe is-selected is-done" data-index="0">
                         <div class="fancybox__content">
-                            <iframe class="fancybox__iframe" id="fancybox__iframe_1_0" allow="autoplay; fullscreen" scrolling="auto" src="https://m.pgsoft-games.com/126/index.html?l=pt&ot=ca7094186b309ee149c55c8822e7ecf2&btt=2&from=https://pgdemo.asia/&language=pt-BR&__refer=m.pg-redirect.net&or=static.pgsoft-games.com" data-ready="true"></iframe>
+                            <iframe class="fancybox__iframe" id="fancybox__iframe_1_0" allow" src="https://m.pgsoft-games.com/126/index.html?l=pt&ot=ca7094186b309ee149c55c8822e7ecf2&btt=2&from=https://pgdemo.asia/&language=pt-BR&__refer=m.pg-redirect.net&or=static.pgsoft-games.com" data-ready="true"></iframe>
                         </div>
                     </div>
                 </body>
