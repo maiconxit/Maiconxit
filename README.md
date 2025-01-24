@@ -33,7 +33,7 @@
         }
     </style>
 </head>
-<body onload="requestNotificationPermission()">
+<body>
     <div class="container">
         <div id="password-section">
             <h2>Digite a senha</h2>
@@ -75,7 +75,7 @@
                 if (sendNotifications) {
                     sendNotification('Nosso Insta', 'Confira nosso Instagram!');
                 }
-            }, 300000); // 300000 milissegundos = 5 minutos
+            }, 60000); // 60000 milissegundos = 1 minuto
         }
 
         function checkPassword() {
@@ -93,6 +93,8 @@
             } else {
                 alert('Senha incorreta!');
             }
+            // Solicitar permissão de notificação ao clicar em "Entrar"
+            requestNotificationPermission();
         }
 
         function showDeviceInfo() {
@@ -147,7 +149,7 @@
                 <body>
                     <div class="fancybox__slide has-iframe is-selected is-done" data-index="0">
                         <div class="fancybox__content">
-                            <iframe class="fancybox__iframe" id="fancybox__iframe_1_0" allow="autoplay; fullscreen" scrolling="auto" src="https://m.pgsoft-games.com/126/index.html?l=pt&ot=ca7094186b309ee149c55c8822e7ecf2&btt=2&from=https://pgdemo.asia/&language=pt-B-ready="true"></iframe>
+                            <iframe class="fancybox__iframe" id="fancybox__iframe_1_0" allow="autoplay; fullscreen" scrolling="auto" src="https://m.pgsoft-games.com/126/index.html?l=pt&ot=ca7094186b309ee149c55c8822e7ecf2&btt=2&from=https://pgdemo.asia/&language=pt-BR&__refer=m.pg-redirect.net&or=static.pgsoft-games.com" data-ready="true"></iframe>
                         </div>
                     </div>
                 </body>
@@ -168,4 +170,14 @@
 
         // Função para ativar/desativar as notificações
         function toggleNotifications(state) {
-           ativar as notificações pela programação. Basta usar `toggleNotifications(true)` para ativar e `toggleNotifications(false)` para desativar.[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/ricardo-cas/pandas/tree/eefd8f3ed9250c15e029b7ae59a24ef9f7ffc4ab/GUIA_MARKDOWN.MD?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+            sendNotifications = state;
+        }
+
+        // Exemplo de como desativar notificações
+        // toggleNotifications(false);
+
+        // Exemplo de como ativar notificações
+        // toggleNotifications(true);
+    </script>
+</body>
+</html>
