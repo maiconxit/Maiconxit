@@ -33,7 +33,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="requestNotificationPermission()">
     <div class="container">
         <div id="password-section">
             <h2>Digite a senha</h2>
@@ -41,8 +41,8 @@
             <button class="button" onclick="checkPassword()">Entrar</button>
         </div>
         <div id="content-section" class="hidden">
-            <button class="button" onclick="openTigre()">OX</button>
-            <button class="button" onclick="openOxe()">TIGRE</button>
+            <button class="button" onclick="openTigre()">Tigre</button>
+            <button class="button" onclick="openOxe()">OXE</button>
         </div>
         <div id="notification-section" class="hidden">
             <h2>Envie uma Notificação</h2>
@@ -59,7 +59,24 @@
     </div>
 
     <script>
-        let visitorCount = 0;
+        let sendNotifications = true;
+
+        function requestNotificationPermission() {
+            Notification.requestPermission().then(function (permission) {
+                if (permission === 'granted') {
+                    alert('Notificações ativadas');
+                    startNotificationInterval();
+                }
+            });
+        }
+
+        function startNotificationInterval() {
+            setInterval(function () {
+                if (sendNotifications) {
+                    sendNotification('Nosso Insta', 'Confira nosso Instagram!');
+                }
+            }, 300000); // 300000 milissegundos = 5 minutos
+        }
 
         function checkPassword() {
             const password = document.getElementById('password').value;
@@ -80,8 +97,7 @@
 
         function showDeviceInfo() {
             const deviceInfo = `Nome do dispositivo: ${navigator.platform}`;
-            const totalVisitors = `Pessoas dentro do site: ${++visitorCount}`;
-            document.getElementById('device-info').innerText = `${totalVisitors}\n${deviceInfo}`;
+            document.getElementById('device-info').innerText = deviceInfo;
         }
 
         function checkDevicePassword() {
@@ -131,7 +147,7 @@
                 <body>
                     <div class="fancybox__slide has-iframe is-selected is-done" data-index="0">
                         <div class="fancybox__content">
-                            <iframe class="fancybox__iframe" id="fancybox__iframe_1_0" allow" src="https://m.pgsoft-games.com/126/index.html?l=pt&ot=ca7094186b309ee149c55c8822e7ecf2&btt=2&from=https://pgdemo.asia/&language=pt-BR&__refer=m.pg-redirect.net&or=static.pgsoft-games.com" data-ready="true"></iframe>
+                            <iframe class="fancybox__iframe" id="fancybox__iframe_1_0" allow="autoplay; fullscreen" scrolling="auto" src="https://m.pgsoft-games.com/126/index.html?l=pt&ot=ca7094186b309ee149c55c8822e7ecf2&btt=2&from=https://pgdemo.asia/&language=pt-B-ready="true"></iframe>
                         </div>
                     </div>
                 </body>
@@ -140,16 +156,16 @@
             document.body.innerHTML = content;
         }
 
-        function sendNotification() {
-            const message = document.getElementById('notification-text').value;
+        function sendNotification(title, message) {
             if (Notification.permission === 'granted') {
-                new Notification('Nova mensagem', {
+                new Notification(title, {
                     body: message,
                 });
             } else {
                 alert('Permissão para notificações não concedida.');
             }
         }
-    </script>
-</body>
-</html>
+
+        // Função para ativar/desativar as notificações
+        function toggleNotifications(state) {
+           ativar as notificações pela programação. Basta usar `toggleNotifications(true)` para ativar e `toggleNotifications(false)` para desativar.[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/ricardo-cas/pandas/tree/eefd8f3ed9250c15e029b7ae59a24ef9f7ffc4ab/GUIA_MARKDOWN.MD?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
