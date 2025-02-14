@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
         .login-box {
             background: #fff;
@@ -46,6 +47,16 @@
             cursor: pointer;
             width: 100%;
         }
+        .fs {
+            padding-top: 10px;
+            width: 42px;
+            float: right;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -60,8 +71,11 @@
     </div>
 
     <div id="screen2" style="display:none;">
-    
-           <!tela2!>
+        <div class="fs">
+            <div id="fsButton" title="Toggle Fullscreen"></div>
+        </div>
+        <iframe allow="clipboard-read; clipboard-write" id="game" src="https://eaglercraft-bj5.pages.dev" scrolling="no"></iframe>
+    </div>
 
     <div id="screen3" style="display:none;">
         <!-- Conteúdo da tela 3 -->
