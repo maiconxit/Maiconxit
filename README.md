@@ -61,39 +61,7 @@
 
     <div id="screen2" style="display:none;">
     
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Example</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        .fs {
-            padding-top: 10px;
-            width: 42px;
-            float: right;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
-</head>
-<body>
-    <div class="fs">
-        <div id="fsButton" title="Toggle Fullscreen"></div>
-    </div>
-    <iframe allow="clipboard-read; clipboard-write" id="game" src="https://eaglercraft-bj5.pages.dev" scrolling="no"></iframe>
-</body>
-</html>
-    </div>
+           <!tela2!>
 
     <div id="screen3" style="display:none;">
         <!-- Conteúdo da tela 3 -->
