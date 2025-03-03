@@ -79,6 +79,8 @@
 
     <div id="screen3" style="display:none;">
         <!-- Conteúdo da tela 3 -->
+█▀█ █░█ ▀█▀ ▄▀█
+█▀▀ █▄█ ░█░ █▀█
     </div>
 
     <script>
