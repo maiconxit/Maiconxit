@@ -85,7 +85,7 @@
         function login() {
             const password = document.getElementById('password').value;
 
-            if (password === 'maicon xit.' || password === 'gabriel 014' || password === 'gustavo da 014' || password === 'renan 2') {
+            if (password === 'maicon xit.' || password === 'gabriel 014' || password === 'gustavo da 014' || password === 'renann ') {
                 document.querySelector('.login-box').style.display = 'none';
                 document.getElementById('screen1').style.display = 'block';
             } else if (password === 'maicon lindo'|| password === '1') {
